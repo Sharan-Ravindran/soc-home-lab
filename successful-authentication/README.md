@@ -71,3 +71,64 @@ The observed activity is more closely associated with:
 - T1078.003 — Local Accounts
 
 These mappings describe the observed behavior more accurately, although the event alone does not establish malicious intent.
+
+## Investigation
+**1. Identify the authentication event**
+
+Windows Event ID 4624 confirmed that authentication was successful.
+
+**2. Determine the logon type**
+
+Logon Type 3 indicates a network logon.
+This is consistent with the SMB connection initiated from Kali.
+
+**3. Identify the account**
+
+The target account was:
+```bash
+socuser
+```
+This was a local Windows account created specifically for the lab.
+
+**4. Identify the source**
+
+The source IP corresponded to the Kali Linux VM.
+This established the direction of the authentication:
+
+Kali Linux
+     |
+     | SMB authentication
+     v
+Windows 11
+
+**5. Assess the MITRE mapping**
+
+The Wazuh rule contained several MITRE ATT&CK mappings, but the raw event and the activity performed in the lab did not support all of those techniques.
+
+This demonstrates why a SOC analyst should validate SIEM detections against the underlying telemetry and surrounding context rather than treating an automated MITRE mapping as conclusive evidence.
+
+## Analyst Verdict
+
+**Severity**: Low / Informational
+
+**Classification**: Successful network authentication
+
+**Malicious activity confirmed**: No
+
+**Reason**: The authentication was intentionally performed using a known local lab account from the Kali VM.
+
+The event demonstrates how a legitimate successful SMB authentication can generate Windows security telemetry and how SIEM analysts can investigate the source, account, logon type, authentication protocol, and MITRE metadata.
+
+## Key Learning
+
+This investigation demonstrated:
+
+Windows Event ID 4624
+Network Logon (Type 3)
+NTLM authentication
+SMB authentication
+Local Windows accounts
+Wazuh event investigation
+MITRE ATT&CK technique validation
+Differentiating SIEM rule metadata from confirmed attacker behavior
+Building an investigation from raw security telemetry
