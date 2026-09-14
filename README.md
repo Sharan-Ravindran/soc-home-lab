@@ -40,7 +40,7 @@ Investigated:
 - MITRE ATT&CK validation
 - SIEM detection vs. analyst assessment
 
-[View Investigation](./successful-authentication/)
+[Read the investigation](./successful-authentication/)
 
 ## Current Status
 
