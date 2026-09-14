@@ -69,8 +69,8 @@ test.
 The observed behavior is consistent with the Brute Force technique family,
 specifically:
 
-| T1110 | Brute Force |
-| T1110.001 | Password Guessing |
+| T1110 - Brute Force 
+| T1110.001 - Password Guessing
 
 The Wazuh event displayed T1531 (Account Access Removal), but this does not
 match the behavior performed during this test. The MITRE mapping provided
