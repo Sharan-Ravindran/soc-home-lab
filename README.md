@@ -30,7 +30,7 @@ Investigated:
 - Wazuh detection
 - MITRE ATT&CK mapping
 
-[Read the investigation](02-authentication-investigation/investigation.md)
+[Read the investigation](authentication-investigation/investigation.md)
 
 ## Current Status
 
