@@ -32,6 +32,16 @@ Investigated:
 
 [Read the investigation](authentication-investigation/investigation.md)
 
+### 2. Successful SMB Authentication
+- Windows Event ID 4624
+- Successful network authentication
+- SMB authentication using a local account
+- Source and target identification
+- MITRE ATT&CK validation
+- SIEM detection vs. analyst assessment
+
+[View Investigation](./successful-authentication/)
+
 ## Current Status
 
 - [x] Wazuh SIEM deployed
@@ -40,7 +50,7 @@ Investigated:
 - [x] Windows event collection configured
 - [x] SMB authentication telemetry tested
 - [x] First authentication investigation completed
-- [ ] Successful authentication investigation
+- [x] Successful authentication investigation
 - [ ] PowerShell telemetry investigation
 - [ ] Process execution investigation
 - [ ] Network activity investigation
