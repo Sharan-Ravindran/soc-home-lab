@@ -61,9 +61,9 @@ However, the MITRE mappings were not treated as proof that these techniques occu
 The test used a valid plaintext password for a local Windows account.
 Therefore:
 
-**Pass the Hash (T1550.002)**: Not demonstrated. No NTLM hash was supplied directly.
-**Domain Accounts (T1078.002)**: Not applicable to this test because socuser was a local account.
-**RDP (T1021.001)**: Not performed. The connection was made through SMB.
+**Pass the Hash (T1550.002)**: Not demonstrated. No NTLM hash was supplied directly.  
+**Domain Accounts (T1078.002)**: Not applicable to this test because socuser was a local account.  
+**RDP (T1021.001)**: Not performed. The connection was made through SMB.  
 
 The observed activity is more closely associated with:
 
