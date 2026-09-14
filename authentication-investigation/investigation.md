@@ -41,16 +41,16 @@ Windows generated Security Event ID 4625 for each failed authentication.
 Wazuh successfully collected and displayed the events.
 
 ## Important Event Details
-Event ID: 4625
-Target username: Administrator
-Source IP: 192.168.251.128
-Source workstation: KALI
-Target host: Test_lab
-Logon Type: 3 (Network)
-Logon Process: NtLmSsp
-Status: 0xc000006d
-SubStatus: 0xc000006a
-Wazuh rule level: 5
+- Event ID: 4625
+- Target username: Administrator
+- Source IP: 192.168.251.128
+- Source workstation: KALI
+- Target host: Test_lab
+- Logon Type: 3 (Network)
+- Logon Process: NtLmSsp
+- Status: 0xc000006d
+- SubStatus: 0xc000006a
+- Wazuh rule level: 5
 
 ## Analysis
 
@@ -69,8 +69,8 @@ test.
 The observed behavior is consistent with the Brute Force technique family,
 specifically:
 
-| T1110 - Brute Force 
-| T1110.001 - Password Guessing
+- T1110 - Brute Force
+- T1110.001 - Password Guessing
 
 The Wazuh event displayed T1531 (Account Access Removal), but this does not
 match the behavior performed during this test. The MITRE mapping provided
