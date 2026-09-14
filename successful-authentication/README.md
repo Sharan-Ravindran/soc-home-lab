@@ -123,12 +123,15 @@ The event demonstrates how a legitimate successful SMB authentication can genera
 
 This investigation demonstrated:
 
-Windows Event ID 4624
-Network Logon (Type 3)
-NTLM authentication
-SMB authentication
-Local Windows accounts
-Wazuh event investigation
-MITRE ATT&CK technique validation
-Differentiating SIEM rule metadata from confirmed attacker behavior
-Building an investigation from raw security telemetry
+Windows Event ID 4624  
+Network Logon (Type 3)  
+NTLM authentication  
+SMB authentication  
+Local Windows accounts  
+Wazuh event investigation  
+MITRE ATT&CK technique validation  
+Differentiating SIEM rule metadata from confirmed attacker behavior  
+Building an investigation from raw security telemetry  
+
+### Screenshots
+<img width="1687" height="82" alt="image" src="https://github.com/user-attachments/assets/3199bc58-a53a-4b8c-b716-5128fbe79d6f" />
