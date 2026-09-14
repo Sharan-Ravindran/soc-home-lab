@@ -89,3 +89,15 @@ Kali Linux
 
 This confirms that the lab can detect and investigate controlled
 authentication activity originating from the Kali Linux VM.
+
+### Screenshot 1 — Kali
+<img width="620" height="177" alt="image" src="https://github.com/user-attachments/assets/96d74069-09ad-4387-a75f-2f2a77da0e29" />
+
+### Screenshot 2 — Wazuh
+<img width="925" height="516" alt="image" src="https://github.com/user-attachments/assets/56dc76ce-fc57-4293-8a89-8a79ef562ea5" />
+
+### Screenshot 3 - Wazuh MITRE
+<img width="877" height="112" alt="image" src="https://github.com/user-attachments/assets/e25185d2-5cd0-4e71-84fd-a2a8c0682550" />
+
+
+
