@@ -1,4 +1,4 @@
-# Investigation 4 — PowerShell Process Activity Analysis
+# PowerShell Process Activity Analysis
 
 ## Overview
 
