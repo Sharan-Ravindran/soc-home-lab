@@ -80,9 +80,4 @@ Get-CimInstance Win32_Process -Filter "ProcessId = 6068" |
 Select-Object ProcessId, Name, ExecutablePath, CommandLine, ParentProcessId
 ```
 The result showed:
-
-- ProcessId       : 6068
-- Name            : svchost.exe
-- ExecutablePath  : C:\WINDOWS\system32\svchost.exe
-- CommandLine     : C:\WINDOWS\system32\svchost.exe -k netsvcs -p -s wuauserv
-- ParentProcessId : 864
+<img width="970" height="152" alt="image" src="https://github.com/user-attachments/assets/0c133634-622d-405a-b6c2-6344c67bf45d" />
