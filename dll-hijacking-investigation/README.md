@@ -157,11 +157,11 @@ Therefore, the MITRE mappings were not considered confirmation that DLL hijackin
 
 The investigation traced the file creation event back to:
 
-svchost.exe
-    |
-    +-- wuauserv
-        |
-        +-- Windows Update activity
+svchost.exe  
+    |  
+    +-- wuauserv  
+        |  
+        +-- Windows Update activity  
 
 The process was running from the legitimate Windows System32 directory under NT AUTHORITY\SYSTEM.
 
