@@ -42,6 +42,21 @@ Investigated:
 
 [Read the investigation](./successful-authentication/)
 
+### 3. Possible DLL Search Order Hijacking Investigation
+
+- Sysmon Event ID 11 investigation
+- Wazuh Rule 92219 analysis
+- DLL Search Order Hijacking alert validation
+- Process investigation using PID
+- `svchost.exe` service identification
+- Windows Update (`wuauserv`) analysis
+- Authenticode signature verification
+- MITRE ATT&CK validation
+- False positive assessment
+
+[View Investigation](./dll-hijacking-investigation/)
+
+
 ## Current Status
 
 - [x] Wazuh SIEM deployed
