@@ -75,14 +75,14 @@ The process was running under:
 NT AUTHORITY\SYSTEM
 ```
 The process was then investigated using its Process ID.
-
+```bash
 Get-CimInstance Win32_Process -Filter "ProcessId = 6068" |
 Select-Object ProcessId, Name, ExecutablePath, CommandLine, ParentProcessId
-
+```
 The result showed:
 
-ProcessId       : 6068
-Name            : svchost.exe
-ExecutablePath  : C:\WINDOWS\system32\svchost.exe
-CommandLine     : C:\WINDOWS\system32\svchost.exe -k netsvcs -p -s wuauserv
-ParentProcessId : 864
+- ProcessId       : 6068
+- Name            : svchost.exe
+- ExecutablePath  : C:\WINDOWS\system32\svchost.exe
+- CommandLine     : C:\WINDOWS\system32\svchost.exe -k netsvcs -p -s wuauserv
+- ParentProcessId : 864
