@@ -86,44 +86,16 @@ The alert was triggered because a .ps1 file was created in the user's temporary 
 A separate Sysmon Event ID 1 was used to analyze PowerShell process creation.
 
 Relevant event:
-```bash
-UtcTime:
-2026-09-15 10:53:21.498
 
-ProcessId:
-7408
+<img width="1647" height="492" alt="image" src="https://github.com/user-attachments/assets/f7ecf223-d148-4e72-a6e5-05d471638a30" />
 
-Image:
-C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-
-CommandLine:
-"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
-
-User:
-Test_lab\SOCuser
-
-IntegrityLevel:
-High
-
-ParentProcessId:
-1324
-
-ParentImage:
-C:\Windows\explorer.exe
-
-ParentCommandLine:
-C:\WINDOWS\Explorer.EXE
-
-ParentUser:
-Test_lab\SOCuser
-```
 The executable was identified as:
 ```bash
 Windows PowerShell
 Microsoft Corporation
 ```
 
-Child Process Correlation
+## Child Process Correlation
 
 Additional Sysmon telemetry showed whoami.exe being executed by PowerShell.
 
@@ -136,3 +108,55 @@ powershell.exe (PID 11396)
     └── whoami.exe (PID 10824)  
 
 The whoami command was manually executed during the investigation to generate and verify telemetry.
+
+## Wazuh Alert Correlation
+
+The PowerShell process itself was successfully recorded by Sysmon as Event ID 1.
+
+However, searching the Wazuh alert index for the specific Event ID 1 PowerShell process did not return an alert.
+
+This demonstrates an important distinction between telemetry and alerts:
+
+Sysmon Event
+      |
+      v
+Wazuh Agent
+      |
+      +----> Event collected
+      |
+      +----> Detection rule matched → Wazuh Alert
+
+Not every collected Sysmon event necessarily produces a Wazuh alert.
+
+The manually launched PowerShell process did not generate a corresponding Wazuh alert because there was no detection rule match for that benign process creation.
+
+## MITRE ATT&CK Assessment
+
+Wazuh mapped Rule 92213 to:
+
+- T1105 — Ingress Tool Transfer
+- Tactic: Command and Control
+
+However, the observed telemetry did not provide evidence that a malicious payload was transferred into the system.
+
+The presence of a .ps1 file in a temporary directory alone is insufficient to establish T1105.
+
+This investigation therefore treats the automated MITRE mapping as a detection classification requiring validation, rather than proof that the technique occurred.
+
+## Analyst Verdict
+
+- **Verdict:** Likely Benign / False Positive
+
+The available telemetry is consistent with normal PowerShell activity performed by the lab user.
+
+**Evidence supporting this assessment:**
+
+- PowerShell ran under the expected SOCuser account.  
+- The PowerShell executable was located in the standard Windows directory.  
+- The executable was identified as Microsoft Windows PowerShell.  
+- PowerShell was launched from explorer.exe.  
+- The command line contained no suspicious arguments.  
+- The associated temporary .ps1 file followed a PowerShell script-policy test naming pattern.  
+- No evidence of malicious payload transfer or additional suspicious execution was identified from the available telemetry.  
+
+The verdict is classified as **likely benign* rather than definitively benign because the investigation was limited to the available Sysmon and Wazuh telemetry.
