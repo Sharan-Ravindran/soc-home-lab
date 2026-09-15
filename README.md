@@ -54,7 +54,7 @@ Investigated:
 - MITRE ATT&CK validation
 - False positive assessment
 
-[View Investigation](./dll-hijacking-investigation/)
+[Read the investigation](./dll-hijacking-investigation/)
 
 
 ## Current Status
