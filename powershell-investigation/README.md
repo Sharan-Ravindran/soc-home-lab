@@ -37,6 +37,9 @@ PowerShell activity generated telemetry on the Windows endpoint.
 
 Wazuh generated a Level 15 alert:
 
+<img width="1886" height="127" alt="image" src="https://github.com/user-attachments/assets/3589254d-1c3a-412b-aef2-fc36bd229448" />
+
+
 - **Wazuh Rule:** `92213`
 - **Event ID:** `11`
 - **Description:** `Executable file dropped in folder commonly used by malware`
@@ -47,4 +50,34 @@ The alert was associated with PowerShell creating a temporary `.ps1` file:
 ```text
 C:\Users\SOCuser\AppData\Local\Temp\__PSScriptPolicyTest_wths2qej.l2u.ps1
 ```
+Because PowerShell is frequently abused by attackers, the activity required investigation rather than being dismissed based only on the alert description.
+
+---
+
+## Initial Alert
+
+**Wazuh Alert**
+- Rule ID: 92213
+- Level: 15
+- Event ID: 11
+
+**Relevant telemetry:**
+
+Image:
+```text
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+```
+Process ID:
+```text
+11396
+```
+User:
+```text
+Test_lab\SOCuser
+```
+Target Filename:
+```text
+C:\Users\SOCuser\AppData\Local\Temp\__PSScriptPolicyTest_wths2qej.l2u.ps1
+```
+The alert was triggered because a .ps1 file was created in the user's temporary directory.
 
