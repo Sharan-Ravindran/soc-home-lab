@@ -117,14 +117,14 @@ However, searching the Wazuh alert index for the specific Event ID 1 PowerShell 
 
 This demonstrates an important distinction between telemetry and alerts:
 
-Sysmon Event
-      |
-      v
-Wazuh Agent
-      |
-      +----> Event collected
-      |
-      +----> Detection rule matched → Wazuh Alert
+Sysmon Event  
+      |  
+      v  
+Wazuh Agent  
+      |  
+      +----> Event collected  
+      |  
+      +----> Detection rule matched → Wazuh Alert  
 
 Not every collected Sysmon event necessarily produces a Wazuh alert.
 
