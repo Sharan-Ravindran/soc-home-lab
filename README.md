@@ -56,6 +56,18 @@ Investigated:
 
 [Read the investigation](./dll-hijacking-investigation/)
 
+### 4. Powershell Process Activity
+
+- Sysmon Event ID 1
+- Sysmon Event ID 11
+- PowerShell process creation
+- Parent-child process analysis
+- Process tree investigation
+- Wazuh alert correlation
+- False-positive analysis
+- MITRE ATT&CK validation
+
+[Read the investigation](./powershell-investigation/)
 
 ## Current Status
 
@@ -66,7 +78,7 @@ Investigated:
 - [x] SMB authentication telemetry tested
 - [x] First authentication investigation completed
 - [x] Successful authentication investigation
-- [ ] PowerShell telemetry investigation
+- [x] PowerShell telemetry investigation
 - [ ] Process execution investigation
 - [ ] Network activity investigation
 - [ ] Full incident timeline
