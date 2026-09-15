@@ -81,3 +81,58 @@ C:\Users\SOCuser\AppData\Local\Temp\__PSScriptPolicyTest_wths2qej.l2u.ps1
 ```
 The alert was triggered because a .ps1 file was created in the user's temporary directory.
 
+## Sysmon Event ID 1 — PowerShell Process Creation
+
+A separate Sysmon Event ID 1 was used to analyze PowerShell process creation.
+
+Relevant event:
+```bash
+UtcTime:
+2026-09-15 10:53:21.498
+
+ProcessId:
+7408
+
+Image:
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+
+CommandLine:
+"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+
+User:
+Test_lab\SOCuser
+
+IntegrityLevel:
+High
+
+ParentProcessId:
+1324
+
+ParentImage:
+C:\Windows\explorer.exe
+
+ParentCommandLine:
+C:\WINDOWS\Explorer.EXE
+
+ParentUser:
+Test_lab\SOCuser
+```
+The executable was identified as:
+```bash
+Windows PowerShell
+Microsoft Corporation
+```
+
+Child Process Correlation
+
+Additional Sysmon telemetry showed whoami.exe being executed by PowerShell.
+
+<img width="1668" height="479" alt="image" src="https://github.com/user-attachments/assets/18704fb8-f54f-4383-8241-156bf26e520a" />
+
+This established the following process relationship:
+
+powershell.exe (PID 11396)  
+    |  
+    └── whoami.exe (PID 10824)  
+
+The whoami command was manually executed during the investigation to generate and verify telemetry.
