@@ -119,6 +119,25 @@ Get-AuthenticodeSignature "C:\Windows\System32\ssshim.dll"
 ```
 The result showed:
 
-Status : Valid
+**Status** : Valid
 
 This confirmed that the System32 copy of ssshim.dll had a valid digital signature.
+
+## MITRE ATT&CK Analysis
+
+Wazuh mapped the alert to:
+
+- T1574.001 — DLL Search Order Hijacking
+- T1574.002 — DLL Side-Loading
+
+However, the investigation did not find evidence that a malicious DLL was loaded or that a legitimate application was manipulated into loading an attacker-controlled DLL.
+
+The raw telemetry only confirmed that:
+
+- A DLL was created.
+- The creating process was svchost.exe.
+- The process was hosting the Windows Update service.
+- The file was created inside a temporary Windows directory.
+- The temporary file was later removed.
+
+Therefore, the MITRE mappings were not considered confirmation that DLL hijacking or side-loading had occurred.
