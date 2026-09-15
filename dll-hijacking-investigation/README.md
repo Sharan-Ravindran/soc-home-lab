@@ -130,6 +130,9 @@ Wazuh mapped the alert to:
 - T1574.001 — DLL Search Order Hijacking
 - T1574.002 — DLL Side-Loading
 
+  <img width="801" height="110" alt="image" src="https://github.com/user-attachments/assets/a0ba4664-8c2f-4ae7-9fe2-8bf349a237a5" />
+
+
 However, the investigation did not find evidence that a malicious DLL was loaded or that a legitimate application was manipulated into loading an attacker-controlled DLL.
 
 The raw telemetry only confirmed that:
@@ -141,3 +144,27 @@ The raw telemetry only confirmed that:
 - The temporary file was later removed.
 
 Therefore, the MITRE mappings were not considered confirmation that DLL hijacking or side-loading had occurred.
+
+## Analyst Verdict
+
+**Classification:** Benign / Likely False Positive
+
+**Severity:** Low
+
+**Malicious activity confirmed:** No
+
+- Reason
+
+The investigation traced the file creation event back to:
+
+svchost.exe
+    |
+    +-- wuauserv
+        |
+        +-- Windows Update activity
+
+The process was running from the legitimate Windows System32 directory under NT AUTHORITY\SYSTEM.
+
+The Windows Update service was active, and the DLL was created inside a temporary Windows directory before later being removed.
+
+No evidence was identified showing that the DLL was maliciously loaded, that an application was hijacked, or that DLL side-loading occurred.
