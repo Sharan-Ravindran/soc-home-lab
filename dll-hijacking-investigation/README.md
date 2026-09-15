@@ -80,6 +80,7 @@ Get-CimInstance Win32_Process -Filter "ProcessId = 6068" |
 Select-Object ProcessId, Name, ExecutablePath, CommandLine, ParentProcessId
 ```
 The result showed:
+
 <img width="970" height="152" alt="image" src="https://github.com/user-attachments/assets/0c133634-622d-405a-b6c2-6344c67bf45d" />
 
 **2. Investigate the Hosted Service**
@@ -95,7 +96,10 @@ The service was verified using:
 Get-Service wuauserv | Select-Object Name, Status, StartType
 ```
 Result:
+
+
 <img width="691" height="93" alt="image" src="https://github.com/user-attachments/assets/72874d1e-a937-49c6-9126-bcff449d959c" />
+
 
 This showed that the Windows Update service was actively running when the DLL creation event occurred.
 
