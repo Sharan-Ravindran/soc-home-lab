@@ -215,3 +215,4 @@ Now i setup the local rules for wazuh to take place after the decoding was succe
 
 - Now im creating rules staring with SQL, because this is a simple home lab i will only add 'OR 1=1' and not every variation
 - Facing issues to detect the exact SQL injection log in wazuh as decoder isnt proper
+- Managed to setup it up properly now moving onto XSS, i setup  a local rule to scan for "script" term in the <url>, there are some limitations in wazuh preventing me for specifically checking <script> tags. False positives are expected.
