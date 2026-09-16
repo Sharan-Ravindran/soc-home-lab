@@ -213,4 +213,5 @@ after some minute tweaking i managed to filter it properly using regex
 
 Now i setup the local rules for wazuh to take place after the decoding was successful
 
--Now im creating rules staring with SQL, because this is a simple home lab i will only add 'OR 1=1' and not every variation 
+- Now im creating rules staring with SQL, because this is a simple home lab i will only add 'OR 1=1' and not every variation
+- Facing issues to detect the exact SQL injection log in wazuh as decoder isnt proper
