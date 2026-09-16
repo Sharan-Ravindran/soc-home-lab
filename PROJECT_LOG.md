@@ -205,3 +205,7 @@ Before implementing it, I want to understand:
 3. How regular expressions are used to extract fields
 4. How decoded fields are represented in Wazuh
 5. How `wazuh-logtest` can be used to test the decoder
+
+
+**managed to setup a decoder for the log**
+after some minute tweaking i managed to filter it properly using regex 
