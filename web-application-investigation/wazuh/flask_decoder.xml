@@ -1,0 +1,7 @@
+```xml
+<decoder name="flask-webapp">
+    <prematch>REQUEST</prematch>
+    <regex type="pcre2">method=([^|]+) \| path=([^|]+) \| ip=([^|]+) \| user_agent=(.*)</regex>
+    <order>method,url,srcip,user_agent</order>
+</decoder>
+```
