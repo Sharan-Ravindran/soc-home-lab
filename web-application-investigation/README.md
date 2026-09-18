@@ -41,6 +41,7 @@ The lab was used to generate controlled SQL injection and Cross-Site Scripting (
 | Python |	Alert analysis and basic correlation |
 
 ## Network
+```text
 Kali Linux
 192.168.251.128
 
@@ -53,9 +54,11 @@ Windows / Flask
 
 Wazuh Manager
 192.168.251.131
-Objective
+```
 
-The main objectives of this investigation were:
+## Objective
+
+**The main objectives of this investigation were:**
 
 Create application-level HTTP request logging.
 Forward application logs to Wazuh.
