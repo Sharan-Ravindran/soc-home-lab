@@ -1,0 +1,25 @@
+```xml
+<group name="local,flask_webapp,">
+
+    <rule id="100100" level="3">
+        <decoded_as>flask-webapp</decoded_as>
+        <description>Flask web application HTTP request</description>
+        <group>web,application_activity,</group>
+    </rule>
+
+    <rule id="100101" level="10">
+        <if_sid>100100</if_sid>
+        <url>OR 1=1</url>
+        <description>Possible SQL injection attempt detected in Flask web application</description>
+        <group>web,attack,sql_injection,</group>
+    </rule>
+
+    <rule id="100102" level="10">
+        <if_sid>100100</if_sid>
+        <url>alert</url>
+        <description>Possible XSS injection attempt detected in Flask web application</description>
+        <group>web,attack,xss_injection,</group>
+    </rule>
+
+</group>
+```
