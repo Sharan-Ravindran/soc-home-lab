@@ -70,13 +70,14 @@ Generate controlled attack traffic from Kali.
 Investigate the resulting alerts in Wazuh.
 Visualize the detected activity in the Wazuh Dashboard.
 Use Python to perform basic alert analysis and correlation.
-1. Application Logging
+
+## 1. Application Logging
 
 The Flask application records HTTP requests to:
-
+```bash
 C:\Users\SOCuser\Desktop\soc-vulnerable-webapp\logs\webapp.log
-
-Each request contains:
+```
+**Each request contains:**
 
 Timestamp
 HTTP method
@@ -86,16 +87,17 @@ User-Agent
 
 Example:
 
-2026-09-16 17:01:10,492 | INFO | REQUEST | method=GET | path=/ | ip=192.168.251.128 | user_agent=curl/8.21.0
+<img width="1668" height="161" alt="image" src="https://github.com/user-attachments/assets/0a984fd5-ea73-4926-8517-6e7f92411230" />
+
 
 This gives the monitoring system useful application-level telemetry that would not necessarily be available from endpoint logs alone.
 
-2. Wazuh Log Collection
+## 2. Wazuh Log Collection
 
 The Windows Wazuh Agent was configured to monitor the Flask application's log file.
 
-The event flow is:
-
+- The event flow is:
+```text
 Flask
   ↓
 webapp.log
@@ -103,12 +105,12 @@ webapp.log
 Wazuh Agent
   ↓
 Wazuh Manager
-
+```
 The received events were verified in Wazuh's archived logs before creating any custom detection logic.
 
 This helped separate log collection problems from parsing and detection problems.
 
-3. Custom Wazuh Decoder
+## 3. Custom Wazuh Decoder
 
 Initially, Wazuh received the Flask events as raw log data.
 
