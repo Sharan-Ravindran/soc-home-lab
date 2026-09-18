@@ -200,37 +200,37 @@ Source IP:   192.168.251.128
 Method:      GET
 URL:         /login/<script>alert(1)</script>
 ```
-An important distinction during investigation is:
-agent.ip
+**An important distinction during investigation is:**
+ agent.ip
 
-represents the monitored Windows host:
-192.168.251.132
+**represents the monitored Windows host:**
+ 192.168.251.132
 
-while:
-data.srcip
+**while:**
+ data.srcip
 
-represents the source of the HTTP request:
-192.168.251.128
+**represents the source of the HTTP request:**
+ 192.168.251.128
 
 This allows the analyst to distinguish between the endpoint being monitored and the source generating the web traffic.
 
-7. Detection vs Exploitation
+## 7. Detection vs Exploitation
 
 The alerts confirm that the request matched the configured detection rule.
 
-For example:
+- For example:
 
 Possible SQL injection attempt detected
 
 does not by itself prove that the application was successfully compromised.
 
-Likewise:
+- Likewise:
 
 Possible XSS injection attempt detected
 
 shows that an XSS-like payload was detected, but does not by itself prove that JavaScript executed successfully.
 
-This distinction is important during SOC investigations because a detection identifies suspicious activity that requires investigation; it is not automatically proof of successful exploitation.
+This distinction is **important** during SOC investigations because a detection identifies suspicious activity that requires investigation; it is not automatically proof of successful exploitation.
 
 8. Wazuh Dashboard
 
