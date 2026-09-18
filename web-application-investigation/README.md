@@ -182,38 +182,34 @@ curl "http://192.168.251.132:5000/login/<script>alert(1)</script>"
 ```
 These requests were intentionally generated inside the isolated home lab.
 
-6. Alert Investigation
+## 6. Alert Investigation
 
-The SQL injection request produced a Wazuh alert similar to:
-
+- The SQL injection request produced a Wazuh alert similar to:
+```text
 Rule ID:     100101
 Severity:    10
 Source IP:   192.168.251.128
 Method:      GET
 URL:         /login/OR 1=1
-
-The XSS request produced:
-
+```
+- The XSS request produced:
+```text
 Rule ID:     100102
 Severity:    10
 Source IP:   192.168.251.128
 Method:      GET
 URL:         /login/<script>alert(1)</script>
-
+```
 An important distinction during investigation is:
-
 agent.ip
 
 represents the monitored Windows host:
-
 192.168.251.132
 
 while:
-
 data.srcip
 
 represents the source of the HTTP request:
-
 192.168.251.128
 
 This allows the analyst to distinguish between the endpoint being monitored and the source generating the web traffic.
