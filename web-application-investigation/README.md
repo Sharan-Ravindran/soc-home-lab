@@ -320,6 +320,7 @@ Correlation
 - Grouping related alerts together to understand a sequence of activity rather than viewing every alert in isolation.
 
 ## 12. Skills Demonstrated
+```
 Wazuh SIEM
 Security event monitoring
 Log collection
@@ -335,27 +336,9 @@ Basic incident correlation
 Python scripting
 Security telemetry analysis
 Wazuh Dashboard visualization
-13. Lessons Learned
+```
 
-The main lesson from this investigation was that successful log collection does not automatically mean that a SIEM understands the event.
-
-The process is:
-
-Raw Log
-   ↓
-Decoded Fields
-   ↓
-Detection Logic
-   ↓
-Alert
-   ↓
-Investigation
-
-I also learned that detection and successful exploitation are different concepts. A security rule can identify suspicious input without proving that the attack succeeded.
-
-Finally, using Python alongside Wazuh helped me understand the difference between SIEM detection and post-alert analysis/correlation.
-
-Conclusion
+## Conclusion
 
 This investigation extended my SOC home lab from endpoint monitoring into application-level security monitoring.
 
