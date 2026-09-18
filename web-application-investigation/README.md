@@ -123,7 +123,7 @@ but the application-specific values were not yet extracted into separate fields.
 A custom decoder was created to parse the Flask log format.
 
 - Decoder
-- 
+  
 <img width="1166" height="127" alt="image" src="https://github.com/user-attachments/assets/97794d58-8658-4989-a92c-786d679fa4ff" />
 
 The decoder extracts:
@@ -151,26 +151,26 @@ wazuh-logtest
 
 After the decoder was working, custom Wazuh rules were created to detect suspicious web requests.
 
-Base rule
+**Base rule**
 
 <img width="856" height="137" alt="image" src="https://github.com/user-attachments/assets/f9a28210-453e-4f93-a241-21c615c310d7" />
 
 This identifies normal Flask application requests.
 
-SQL Injection detection
+**SQL Injection detection**
 
 <img width="1207" height="152" alt="image" src="https://github.com/user-attachments/assets/6b7312e0-8a4c-4b43-9aa8-ce0856657a3d" />
 
-XSS detection
+**XSS detection**
 
 <img width="1172" height="152" alt="image" src="https://github.com/user-attachments/assets/c7532f46-d014-42ba-9129-1181362733ed" />
 
 These rules generate severity level 10 alerts when the corresponding patterns are detected.
 
-5. Controlled Attack Simulation
+## 5. Controlled Attack Simulation
 
 Testing was performed from the Kali Linux machine.
-
+```bash
 Normal request
 curl "http://192.168.251.132:5000/"
 Login request
@@ -179,7 +179,7 @@ SQL Injection test
 curl "http://192.168.251.132:5000/login/OR%201=1"
 XSS test
 curl "http://192.168.251.132:5000/login/<script>alert(1)</script>"
-
+```
 These requests were intentionally generated inside the isolated home lab.
 
 6. Alert Investigation
