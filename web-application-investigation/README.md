@@ -122,35 +122,32 @@ but the application-specific values were not yet extracted into separate fields.
 
 A custom decoder was created to parse the Flask log format.
 
-Decoder
-<decoder name="flask-webapp">
-    <prematch>REQUEST</prematch>
-    <regex type="pcre2">method=([^|]+) \| path=([^|]+) \| ip=([^|]+) \| user_agent=(.*)</regex>
-    <order>method,url,srcip,user_agent</order>
-</decoder>
+- Decoder
+- 
+<img width="1166" height="127" alt="image" src="https://github.com/user-attachments/assets/97794d58-8658-4989-a92c-786d679fa4ff" />
 
 The decoder extracts:
 
-method
-url
-srcip
-user_agent
+- method
+- url
+- srcip
+- user_agent
 
-For example, the raw event:
-
+**For example, the raw event:**
+```text
 method=GET | path=/login/OR 1=1 | ip=192.168.251.128 | user_agent=curl/8.21.0
-
-is decoded into fields such as:
-
+```
+**is decoded into fields such as:**
+```text
 method      GET
 url         /login/OR 1=1
 srcip       192.168.251.128
 user_agent  curl/8.21.0
-
-The decoder was tested using:
-
+```
+**The decoder was tested using:**
 wazuh-logtest
-4. Custom Detection Rules
+
+## 4. Custom Detection Rules
 
 After the decoder was working, custom Wazuh rules were created to detect suspicious web requests.
 
