@@ -115,9 +115,9 @@ This helped separate log collection problems from parsing and detection problems
 Initially, Wazuh received the Flask events as raw log data.
 
 The event contained the original request inside:
-
+```
 full_log
-
+```
 but the application-specific values were not yet extracted into separate fields.
 
 A custom decoder was created to parse the Flask log format.
@@ -155,28 +155,18 @@ wazuh-logtest
 After the decoder was working, custom Wazuh rules were created to detect suspicious web requests.
 
 Base rule
-<rule id="100100" level="3">
-    <decoded_as>flask-webapp</decoded_as>
-    <description>Flask web application HTTP request</description>
-    <group>web,application_activity,</group>
-</rule>
+
+<img width="856" height="137" alt="image" src="https://github.com/user-attachments/assets/f9a28210-453e-4f93-a241-21c615c310d7" />
 
 This identifies normal Flask application requests.
 
 SQL Injection detection
-<rule id="100101" level="10">
-    <if_sid>100100</if_sid>
-    <url>OR 1=1</url>
-    <description>Possible SQL injection attempt detected in Flask web application</description>
-    <group>web,attack,sql_injection,</group>
-</rule>
+
+<img width="1207" height="152" alt="image" src="https://github.com/user-attachments/assets/6b7312e0-8a4c-4b43-9aa8-ce0856657a3d" />
+
 XSS detection
-<rule id="100102" level="10">
-    <if_sid>100100</if_sid>
-    <url>alert</url>
-    <description>Possible XSS injection attempt detected in Flask web application</description>
-    <group>web,attack,xss_injection,</group>
-</rule>
+
+<img width="1172" height="152" alt="image" src="https://github.com/user-attachments/assets/c7532f46-d014-42ba-9129-1181362733ed" />
 
 These rules generate severity level 10 alerts when the corresponding patterns are detected.
 
