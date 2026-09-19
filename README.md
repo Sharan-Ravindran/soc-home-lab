@@ -79,6 +79,4 @@ Investigated:
 - [x] First authentication investigation completed
 - [x] Successful authentication investigation
 - [x] PowerShell telemetry investigation
-- [ ] Process execution investigation
-- [ ] Network activity investigation
 - [ ] Full incident timeline
