@@ -69,6 +69,10 @@ Investigated:
 
 [Read the investigation](./powershell-investigation/)
 
+### 5. Full Incident Timeline
+
+-
+
 ## Current Status
 
 - [x] Wazuh SIEM deployed
